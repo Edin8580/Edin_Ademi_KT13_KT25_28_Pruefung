@@ -1,0 +1,47 @@
+CREATE DATABASE StundenplanDB;
+GO
+
+USE StundenplanDB;
+GO
+
+-- Klassen
+CREATE TABLE Klasse (
+    KlasseID INT IDENTITY(1,1) PRIMARY KEY,
+    Klassenname NVARCHAR(20) NOT NULL
+);
+
+-- Lehrer
+CREATE TABLE Lehrer (
+    LehrerID INT IDENTITY(1,1) PRIMARY KEY,
+    Vorname NVARCHAR(50) NOT NULL,
+    Nachname NVARCHAR(50) NOT NULL
+);
+
+-- Schulzimmer
+CREATE TABLE Schulzimmer (
+    SchulzimmerID INT IDENTITY(1,1) PRIMARY KEY,
+    Zimmernummer NVARCHAR(20) NOT NULL
+);
+
+-- Fächer
+CREATE TABLE Fach (
+    FachID INT IDENTITY(1,1) PRIMARY KEY,
+    Fachname NVARCHAR(50) NOT NULL
+);
+
+-- Stundenplan (voll normalisiert, 3. Normalform)
+CREATE TABLE Stundenplan (
+    StundenplanID INT IDENTITY(1,1) PRIMARY KEY,
+    KlasseID INT NOT NULL,
+    LehrerID INT NOT NULL,
+    FachID INT NOT NULL,
+    SchulzimmerID INT NOT NULL,
+    Wochentag NVARCHAR(10) NOT NULL,
+    Lektion INT NOT NULL,
+
+    FOREIGN KEY (KlasseID) REFERENCES Klasse(KlasseID),
+    FOREIGN KEY (LehrerID) REFERENCES Lehrer(LehrerID),
+    FOREIGN KEY (FachID) REFERENCES Fach(FachID),
+    FOREIGN KEY (SchulzimmerID) REFERENCES Schulzimmer(SchulzimmerID)
+);
+
