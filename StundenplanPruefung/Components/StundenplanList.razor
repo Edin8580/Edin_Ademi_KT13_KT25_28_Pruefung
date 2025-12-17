@@ -1,0 +1,71 @@
+@page "/StundenplanDB"
+@using StundenplanPruefung.Models
+@inject MyDbContext Db
+@inject NavigationManager Nav
+
+<h3>Stundenplan — Übersicht</h3>
+
+<button class="btn btn-primary" @onclick="Create">Neuen Eintrag anlegen</button>
+
+@if (entries == null)
+{
+    <p>lade...</p>
+}
+else if (!entries.Any())
+{
+    <p>Keine Einträge vorhanden.</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Klasse</th>
+                <th>Lehrer</th>
+                <th>Fach</th>
+                <th>Zimmer</th>
+                <th>Wochentag</th>
+                <th>Lektion</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var s in entries)
+            {
+                <tr>
+                    <td>@s.StundenplanId</td>
+                    <td>@s.Klasse.Klassenname</td>
+                    <td>@($"{s.Lehrer.Vorname} {s.Lehrer.Nachname}")</td>
+                    <td>@s.Fach.Fachname</td>
+                    <td>@s.Schulzimmer.Zimmernummer</td>
+                    <td>@s.Wochentag</td>
+                    <td>@s.Lektion</td>
+                    <td>
+                        <button class="btn btn-sm btn-secondary" @onclick="() => Edit(s.StundenplanId)">Bearbeiten</button>
+                        <button class="btn btn-sm btn-danger" @onclick="() => Delete(s.StundenplanId)">Löschen</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private List<Stundenplan>? entries;
+
+    protected override async Task OnInitializedAsync()
+    {
+        entries = await Db.Stundenplans
+            .Include(s => s.Klasse)
+            .Include(s => s.Lehrer)
+            .Include(s => s.Fach)
+            .Include(s => s.Schulzimmer)
+            .OrderBy(s => s.Wochentag).ThenBy(s => s.Lektion)
+            .ToListAsync();
+    }
+
+    void Create() => Nav.NavigateTo("/stundenplan/edit");
+    void Edit(int id) => Nav.NavigateTo($"/stundenplan/edit/{id}");
+    void Delete(int id) => Nav.NavigateTo($"/stundenplan/delete/{id}");
+}

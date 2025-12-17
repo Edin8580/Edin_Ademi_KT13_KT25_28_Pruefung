@@ -1,0 +1,60 @@
+@page "/stundenplan/delete/{Id:int}"
+@using Microsoft.EntityFrameworkCore
+@using StundenplanPruefung.Models
+@inject MyDbContext Db
+@inject NavigationManager Nav
+
+<h3>Stundenplan-Eintrag löschen</h3>
+
+@if (entry == null)
+{
+    <p>lade...</p>
+}
+else
+{
+    <div class="alert alert-warning">
+        <p>Möchten Sie den Eintrag wirklich löschen?</p>
+        <ul>
+            <li><strong>Klasse:</strong> @entry.Klasse.Klassenname</li>
+            <li><strong>Lehrer:</strong> @($"{entry.Lehrer.Vorname} {entry.Lehrer.Nachname}")</li>
+            <li><strong>Fach:</strong> @entry.Fach.Fachname</li>
+            <li><strong>Zimmer:</strong> @entry.Schulzimmer.Zimmernummer</li>
+            <li><strong>Wochentag:</strong> @entry.Wochentag</li>
+            <li><strong>Lektion:</strong> @entry.Lektion</li>
+        </ul>
+        <button class="btn btn-danger" @onclick="ConfirmDelete">Löschen</button>
+        <button class="btn btn-secondary ms-2" @onclick="Cancel">Abbrechen</button>
+    </div>
+}
+
+@code {
+    [Parameter] public int Id { get; set; }
+    private Stundenplan? entry;
+
+    protected override async Task OnInitializedAsync()
+    {
+        entry = await Db.Stundenplans
+            .Include(s => s.Klasse)
+            .Include(s => s.Lehrer)
+            .Include(s => s.Fach)
+            .Include(s => s.Schulzimmer)
+            .FirstOrDefaultAsync(s => s.StundenplanId == Id);
+
+        if (entry == null)
+        {
+            Nav.NavigateTo("/stundenplan");
+        }
+    }
+
+    private async Task ConfirmDelete()
+    {
+        if (entry != null)
+        {
+            Db.Stundenplans.Remove(entry);
+            await Db.SaveChangesAsync();
+        }
+        Nav.NavigateTo("/stundenplan");
+    }
+
+    void Cancel() => Nav.NavigateTo("/stundenplan");
+}

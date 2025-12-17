@@ -1,0 +1,114 @@
+@page "/stundenplan/edit"
+@using StundenplanPruefung.Models
+@inject MyDbContext Db
+@inject NavigationManager Nav
+@attribute [SupplyParameterFromQuery(Name = "returnUrl")]
+
+<h3>@(isNew ? "Neuen Stundenplan-Eintrag anlegen" : "Stundenplan-Eintrag bearbeiten")</h3>
+
+@if (model == null || klassen == null || lehrer == null || fächer == null || zimmer == null)
+{
+    <p>lade...</p>
+}
+else
+{
+    <EditForm Model="model" OnValidSubmit="HandleValidSubmit">
+        <div class="mb-3">
+            <label class="form-label">Klasse</label>
+            <select class="form-select" @bind="model.KlasseId">
+                @foreach (var k in klassen) { <option value="@k.KlasseId">@k.Klassenname</option> }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Lehrer</label>
+            <select class="form-select" @bind="model.LehrerId">
+                @foreach (var l in lehrer) { <option value="@l.LehrerId">@($"{l.Vorname} {l.Nachname}")</option> }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Fach</label>
+            <select class="form-select" @bind="model.FachId">
+                @foreach (var f in fächer) { <option value="@f.FachId">@f.Fachname</option> }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Schulzimmer</label>
+            <select class="form-select" @bind="model.SchulzimmerId">
+                @foreach (var z in zimmer) { <option value="@z.SchulzimmerId">@z.Zimmernummer</option> }
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Wochentag</label>
+            <input class="form-control" @bind="model.Wochentag" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Lektion</label>
+            <input class="form-control" type="number" @bind="model.Lektion" />
+        </div>
+
+        <button class="btn btn-primary" type="submit">Speichern</button>
+        <button class="btn btn-secondary ms-2" type="button" @onclick="Cancel">Abbrechen</button>
+    </EditForm>
+}
+
+@code {
+    [Parameter] public int? Id { get; set; }
+    private Stundenplan? model;
+    private List<Klasse>? klassen;
+    private List<Lehrer>? lehrer;
+    private List<Fach>? fächer;
+    private List<Schulzimmer>? zimmer;
+    private bool isNew => !Id.HasValue;
+
+    protected override async Task OnInitializedAsync()
+    {
+        klassen = await Db.Klasses.OrderBy(k => k.Klassenname).ToListAsync();
+        lehrer = await Db.Lehrers.OrderBy(l => l.Nachname).ThenBy(l => l.Vorname).ToListAsync();
+        fächer = await Db.Faches.OrderBy(f => f.Fachname).ToListAsync();
+        zimmer = await Db.Schulzimmers.OrderBy(z => z.Zimmernummer).ToListAsync();
+
+        if (Id.HasValue)
+        {
+            model = await Db.Stundenplans.FindAsync(Id.Value);
+            if (model == null)
+            {
+                Nav.NavigateTo("/stundenplan");
+                return;
+            }
+        }
+        else
+        {
+            model = new Stundenplan
+            {
+                Wochentag = "Montag",
+                Lektion = 1,
+                KlasseId = klassen.FirstOrDefault()?.KlasseId ?? 0,
+                LehrerId = lehrer.FirstOrDefault()?.LehrerId ?? 0,
+                FachId = fächer.FirstOrDefault()?.FachId ?? 0,
+                SchulzimmerId = zimmer.FirstOrDefault()?.SchulzimmerId ?? 0
+            };
+        }
+    }
+
+    private async Task HandleValidSubmit()
+    {
+        if (isNew)
+        {
+            Db.Stundenplans.Add(model!);
+        }
+        else
+        {
+            Db.Stundenplans.Update(model!);
+        }
+
+        await Db.SaveChangesAsync();
+        Nav.NavigateTo("/stundenplan");
+    }
+
+    void Cancel() => Nav.NavigateTo("/stundenplan");
+}

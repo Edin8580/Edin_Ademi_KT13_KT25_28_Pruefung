@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|c:\\temp\\pr\u00FCfung\\edin_ademi_kt13_kt25_28_pruefung\\stundenplanpruefung\\components\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|solutionrelative:components\\component.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|c:\\temp\\pr\u00FCfung\\edin_ademi_kt13_kt25_28_pruefung\\stundenplanpruefung\\shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|solutionrelative:shared\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|c:\\temp\\pr\u00FCfung\\edin_ademi_kt13_kt25_28_pruefung\\stundenplanpruefung\\components\\stundenplanlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|solutionrelative:components\\stundenplanlist.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|c:\\temp\\pr\u00FCfung\\edin_ademi_kt13_kt25_28_pruefung\\stundenplanpruefung\\components\\stundenplanedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13EE3766-046E-4C20-9FDC-6A86B6EED0E7}|StundenplanPruefung.csproj|solutionrelative:components\\stundenplanedit.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Models\\MyDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Models\\MyDbContext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Component.razor",
+              "DocumentMoniker": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\Component.razor",
+              "RelativeDocumentMoniker": "Components\\Component.razor",
+              "ToolTip": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\Component.razor",
+              "RelativeToolTip": "Components\\Component.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T18:27:40.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Shared\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Shared\\NavMenu.razor",
+              "ToolTip": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Shared\\NavMenu.razor",
+              "RelativeToolTip": "Shared\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T18:20:48.925Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "StundenplanEdit.razor",
+              "DocumentMoniker": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\StundenplanEdit.razor",
+              "RelativeDocumentMoniker": "Components\\StundenplanEdit.razor",
+              "ToolTip": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\StundenplanEdit.razor",
+              "RelativeToolTip": "Components\\StundenplanEdit.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T18:20:30.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StundenplanList.razor",
+              "DocumentMoniker": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\StundenplanList.razor",
+              "RelativeDocumentMoniker": "Components\\StundenplanList.razor",
+              "ToolTip": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Components\\StundenplanList.razor",
+              "RelativeToolTip": "Components\\StundenplanList.razor",
+              "ViewState": "AgIAAEYAAAAAAAAAAAAAAAEAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T18:20:19.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MyDbContext.cs",
+              "DocumentMoniker": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Models\\MyDbContext.cs",
+              "RelativeDocumentMoniker": "Models\\MyDbContext.cs",
+              "ToolTip": "C:\\Temp\\Pr\u00FCfung\\Edin_Ademi_KT13_KT25_28_Pruefung\\StundenplanPruefung\\Models\\MyDbContext.cs",
+              "RelativeToolTip": "Models\\MyDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-17T18:15:29.519Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
